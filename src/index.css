@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.25rem;
+
+  /* Crisp editorial palette — near-black / near-white, soft sage accent */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 12%;
+  --primary: 0 0% 12%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96.5%;
+  --secondary-foreground: 0 0% 12%;
+  --muted: 0 0% 97%;
+  --muted-foreground: 0 0% 48%;
+  --accent: 90 25% 80%;
+  --accent-foreground: 0 0% 18%;
+  --destructive: 10 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 91%;
+  --input: 0 0% 91%;
+  --ring: 0 0% 12%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Jost", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Jost", "Helvetica Neue", sans-serif;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+.font-script {
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.tracking-luxury {
+  letter-spacing: 0.22em;
+}
+
+/* Smooth "grow-in" underline hover animation for nav/text links */
+.link-hover {
+  position: relative;
+}
+.link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Reusable subtle lift for buttons/cards on hover */
+.hover-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.18);
+}
